@@ -1,0 +1,145 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum UserRole {
+  CUSTOMER
+  ADMIN
+}
+
+enum BookingStatus {
+  CONFIRMED
+  CANCELLED
+  COMPLETED
+}
+
+enum Weekday {
+  MONDAY
+  TUESDAY
+  WEDNESDAY
+  THURSDAY
+  FRIDAY
+  SATURDAY
+  SUNDAY
+}
+
+enum OccupancyKind {
+  BOOKING
+  BLOCKED_TIME
+  HOLIDAY
+}
+
+model User {
+  id                 String        @id @default(uuid())
+  lineUserId         String        @unique
+  displayName        String?
+  pictureUrl         String?
+  role               UserRole      @default(CUSTOMER)
+  createdAt          DateTime      @default(now()) @db.Timestamptz(3)
+  updatedAt          DateTime      @updatedAt @db.Timestamptz(3)
+  bookings           Booking[]
+  initialAdminConfig SystemConfig? @relation("InitialAdmin")
+}
+
+// Stores the immutable identity of the first administrator.
+model SystemConfig {
+  id             Int      @id @default(1)
+  initialAdminId String   @unique
+  initialAdmin   User     @relation("InitialAdmin", fields: [initialAdminId], references: [id], onDelete: Restrict)
+  createdAt      DateTime @default(now()) @db.Timestamptz(3)
+}
+
+model Service {
+  id              Int           @id @default(autoincrement())
+  name            String
+  priceBaht       Int
+  durationMinutes Int
+  isActive        Boolean       @default(true)
+  createdAt       DateTime      @default(now()) @db.Timestamptz(3)
+  updatedAt       DateTime      @updatedAt @db.Timestamptz(3)
+  bookingItems    BookingItem[]
+}
+
+model Booking {
+  id           String             @id @default(uuid())
+  bookingCode  String             @unique @default(dbgenerated("format_booking_code(nextval('booking_code_seq'::regclass))"))
+  userId       String
+  user         User               @relation(fields: [userId], references: [id], onDelete: Restrict)
+  startAt      DateTime           @db.Timestamptz(3)
+  endAt        DateTime           @db.Timestamptz(3)
+  status       BookingStatus      @default(CONFIRMED)
+  customerName String
+  phone        String
+  createdAt    DateTime           @default(now()) @db.Timestamptz(3)
+  updatedAt    DateTime           @updatedAt @db.Timestamptz(3)
+  items        BookingItem[]
+  occupancy    CalendarOccupancy?
+
+  @@index([userId, startAt])
+  @@index([status, startAt])
+}
+
+model BookingItem {
+  id                      String  @id @default(uuid())
+  bookingId               String
+  serviceId               Int
+  serviceNameSnapshot     String
+  priceBahtSnapshot       Int
+  durationMinutesSnapshot Int
+  booking                 Booking @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  service                 Service @relation(fields: [serviceId], references: [id], onDelete: Restrict)
+
+  @@unique([bookingId, serviceId])
+}
+
+model ShopHours {
+  id          Int     @id @default(autoincrement())
+  day         Weekday @unique
+  isOpen      Boolean @default(false)
+  openMinute  Int?
+  closeMinute Int?
+}
+
+model ShopHoliday {
+  id        Int                @id @default(autoincrement())
+  date      DateTime           @unique @db.Date
+  reason    String?
+  occupancy CalendarOccupancy?
+}
+
+model BlockedTime {
+  id        String             @id @default(uuid())
+  startAt   DateTime           @db.Timestamptz(3)
+  endAt     DateTime           @db.Timestamptz(3)
+  reason    String?
+  occupancy CalendarOccupancy?
+}
+
+// One barber means all occupied ranges share this table.
+// An EXCLUDE constraint for overlapping ranges belongs in a future SQL migration.
+model CalendarOccupancy {
+  id            String        @id @default(uuid())
+  kind          OccupancyKind
+  startAt       DateTime      @db.Timestamptz(3)
+  endAt         DateTime      @db.Timestamptz(3)
+  bookingId     String?       @unique
+  blockedTimeId String?       @unique
+  holidayId     Int?          @unique
+  booking       Booking?      @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  blockedTime   BlockedTime?  @relation(fields: [blockedTimeId], references: [id], onDelete: Cascade)
+  holiday       ShopHoliday?  @relation(fields: [holidayId], references: [id], onDelete: Cascade)
+
+  @@index([startAt, endAt])
+}
+
+
+model ShopProfile {
+  id        String @id
+  shopName  String
+  shopPhone String
+}
