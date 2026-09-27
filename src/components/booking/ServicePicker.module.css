@@ -1,0 +1,19 @@
+.headingRow { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; margin-bottom: 1.25rem; }
+.heading { font-size: 1.125rem; font-weight: 600; }
+.count { color: #78716c; font-size: .875rem; }
+.grid { display: grid; gap: 1rem; }
+.card { display: flex; min-height: 14rem; width: 100%; flex-direction: column; border: 1px solid #e7e5e4; border-radius: 1.5rem; background: white; padding: 1.5rem; text-align: left; box-shadow: 0 1px 2px #0000000d; transition: transform .2s, border-color .2s, box-shadow .2s, background-color .2s; }
+.card:hover:not([aria-pressed="true"]) { transform: translateY(-.25rem); border-color: #fcd34d; box-shadow: 0 10px 15px -3px #0000001a; }
+.card:focus-visible { outline: 2px solid #f59e0b; outline-offset: 4px; }
+.card[aria-pressed="true"] { border-color: #f59e0b; background: #fffbeb; box-shadow: 0 16px 40px -24px #78450e73, 0 0 0 2px #f59e0b33; }
+.cardTop { display: flex; width: 100%; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+.icon { display: flex; width: 2.75rem; height: 2.75rem; align-items: center; justify-content: center; border-radius: 1rem; background: #1c1917; color: #fcd34d; font-size: 1.25rem; }
+.check { display: flex; width: 1.75rem; height: 1.75rem; align-items: center; justify-content: center; border: 2px solid #d6d3d1; border-radius: 50%; color: transparent; font-size: .875rem; font-weight: 700; }
+.card:hover .check { border-color: #f59e0b; }
+.card[aria-pressed="true"] .check { border-color: #d97706; background: #d97706; color: white; }
+.serviceName { margin-top: 1.75rem; color: #1c1917; font-size: 1.25rem; font-weight: 600; line-height: 1.35; }
+.duration { margin-top: .5rem; color: #78716c; font-size: .875rem; }
+.priceRow { display: flex; width: 100%; align-items: flex-end; justify-content: space-between; gap: .75rem; margin-top: auto; border-top: 1px solid #e7e5e4; padding-top: 1.25rem; }
+.priceLabel { color: #78716c; font-size: .875rem; font-weight: 500; }
+.price { color: #1c1917; font-size: 1.5rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+@media (min-width: 640px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
