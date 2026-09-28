@@ -10,12 +10,18 @@
     "db:seed-admin": "tsx prisma/seed.ts",
     "start": "next start",
     "lint": "eslint",
-    "test:booking": "tsx --test tests/booking/rules.test.ts"
+    "format": "prettier --write \"src/**/*.{ts,tsx}\" \"styles/**/*.css\" \"tests/**/*.ts\" \"prisma/**/*.ts\" \"*.{ts,mjs}\" package.json .prettierrc.json --ignore-path .gitignore",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx}\" \"styles/**/*.css\" \"tests/**/*.ts\" \"prisma/**/*.ts\" \"*.{ts,mjs}\" package.json .prettierrc.json --ignore-path .gitignore",
+    "test:booking": "tsx --test tests/booking/rules.test.ts",
+    "test:integration": "tsx --test tests/booking/integration.test.ts",
+    "test:http": "tsx --test tests/auth/http.test.ts",
+    "test:responsive": "tsx --test tests/ui/responsive.test.ts",
+    "test:performance": "tsx --test tests/performance/load.test.ts"
   },
   "dependencies": {
     "@prisma/adapter-pg": "7.10.0",
     "@prisma/client": "7.10.0",
-    "axios": "1.13.2",
+    "axios": "1.20.0",
     "dotenv": "18.0.3",
     "jose": "6.2.12",
     "next": "16.3.6",
@@ -24,6 +30,7 @@
     "react-dom": "19.2.8"
   },
   "devDependencies": {
+    "@playwright/test": "^1.63.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/pg": "8.23.1",
@@ -32,6 +39,7 @@
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.3.6",
+    "prettier": "^3.9.9",
     "prisma": "7.10.0",
     "tailwindcss": "^4",
     "tsx": "4.20.5",

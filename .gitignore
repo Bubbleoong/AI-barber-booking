@@ -12,7 +12,7 @@
 
 # testing
 /coverage
-/tests/
+/test-results/
 
 # local one-off data migration
 /prisma/import-legacy.ts
