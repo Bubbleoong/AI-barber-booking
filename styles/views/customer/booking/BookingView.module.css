@@ -1,0 +1,293 @@
+@reference "../../../tailwind.css";
+
+.page {
+  @apply min-h-screen;
+  @apply bg-[#fff7ed];
+  @apply text-[#171717];
+}
+.container {
+  @apply w-full;
+  @apply max-w-[1100px];
+  @apply m-[0_auto];
+  @apply p-[2.5rem_1.25rem_4rem];
+}
+.header {
+  @apply mb-[3rem];
+  @apply border-b border-b-[#e7e5e4];
+  @apply pb-[1.75rem];
+}
+.eyebrow {
+  @apply text-[#c2410c];
+  @apply text-[0.75rem];
+  @apply font-semibold;
+  @apply tracking-[0.28em];
+  @apply uppercase;
+}
+.headerContent {
+  @apply flex;
+  @apply flex-wrap;
+  @apply items-end;
+  @apply justify-between;
+  @apply gap-[1rem];
+  @apply mt-[1rem];
+}
+.stepLabel {
+  @apply mb-[0.5rem];
+  @apply text-[#78716c];
+  @apply text-[0.875rem];
+  @apply font-medium;
+}
+.title {
+  @apply text-[2.25rem];
+  @apply leading-[1.1];
+  @apply font-bold;
+  @apply tracking-[-0.025em];
+}
+.intro {
+  @apply max-w-[20rem];
+  @apply text-[#57534e];
+  @apply text-[0.875rem];
+  @apply leading-[1.5rem];
+}
+.emptyServices {
+  border: 1px dashed #d6d3d1;
+  @apply rounded-[1.5rem];
+  @apply bg-white;
+  @apply p-[4rem_1.5rem];
+  @apply text-center;
+}
+.emptyTitle {
+  @apply text-[1.25rem];
+  @apply font-semibold;
+}
+.emptyText {
+  @apply mt-[0.5rem];
+  @apply text-[#57534e];
+  @apply text-[0.875rem];
+}
+.columns {
+  @apply grid;
+  @apply gap-[2rem];
+}
+.form {
+  @apply flex;
+  @apply flex-col;
+  @apply gap-[2rem];
+  @apply border border-[#e7e5e4];
+  @apply rounded-[1.5rem];
+  @apply bg-white;
+  @apply p-[1.5rem];
+  box-shadow: 0 1px 2px #0000000d;
+}
+.backButton,
+.retryButton {
+  @apply w-[fit-content];
+  @apply text-[#c2410c];
+  @apply text-[0.875rem];
+  @apply font-semibold;
+}
+.backButton:hover,
+.retryButton:hover {
+  @apply underline;
+}
+.retryButton {
+  @apply underline;
+}
+.contactFields {
+  @apply grid;
+  @apply gap-[1.25rem];
+  @apply border-t border-t-[#e7e5e4];
+  @apply pt-[1.75rem];
+}
+.fieldLabel {
+  @apply text-[#292524];
+  @apply text-[0.875rem];
+  @apply font-semibold;
+}
+.fieldInput {
+  @apply block;
+  @apply w-full;
+  @apply mt-[0.5rem];
+  @apply border border-[#d6d3d1];
+  @apply rounded-[1rem];
+  @apply p-[0.75rem_1rem];
+  @apply text-[1rem];
+  @apply font-normal;
+  @apply outline-none;
+}
+.fieldInput:focus {
+  @apply border-[#ea580c];
+}
+.fieldHint {
+  @apply block;
+  @apply mt-[0.5rem];
+  @apply text-[#78716c];
+  @apply text-[0.75rem];
+  @apply font-normal;
+}
+.bookingError {
+  @apply text-[#b91c1c];
+  @apply text-[0.875rem];
+}
+.submitButton,
+.newBookingLink {
+  @apply rounded-[1rem];
+  @apply bg-[#171717];
+  @apply text-white;
+  @apply text-[0.875rem];
+  @apply font-semibold;
+}
+.submitButton {
+  @apply w-full;
+  @apply p-[1rem_1.25rem];
+}
+.submitButton:hover:not(:disabled),
+.newBookingLink:hover {
+  @apply bg-[#c2410c];
+}
+.submitButton:disabled {
+  @apply cursor-not-allowed;
+  @apply bg-[#d6d3d1];
+}
+.successPage {
+  @apply flex;
+  @apply min-h-screen;
+  @apply items-center;
+  @apply justify-center;
+  @apply bg-[#fff7ed];
+  @apply p-[3rem_1.25rem];
+  @apply text-[#171717];
+}
+.successCard {
+  @apply w-full;
+  @apply max-w-[40rem];
+  @apply border border-[#e7e5e4];
+  @apply rounded-[1.5rem];
+  @apply bg-white;
+  @apply p-[2rem];
+  @apply text-center;
+  box-shadow: 0 1px 2px #0000000d;
+}
+.successIcon {
+  @apply flex;
+  @apply w-[3.5rem];
+  @apply h-[3.5rem];
+  @apply items-center;
+  @apply justify-center;
+  @apply m-[0_auto];
+  @apply rounded-[50%];
+  @apply bg-[#dcfce7];
+  @apply text-[#15803d];
+  @apply text-[1.5rem];
+}
+.successTitle {
+  @apply mt-[1.25rem];
+  @apply text-[1.875rem];
+  @apply font-bold;
+}
+.successDate {
+  @apply mt-[0.75rem];
+  @apply text-[#57534e];
+}
+.bookingId {
+  @apply mt-[0.5rem];
+  @apply text-[#78716c];
+  @apply text-[0.875rem];
+}
+.newBookingLink {
+  @apply inline-block;
+  @apply mt-[2rem];
+  @apply p-[0.75rem_1.5rem];
+}
+@media (min-width: 640px) {
+  .container {
+    @apply p-[3.5rem_2rem_4rem];
+  }
+  .title {
+    @apply text-[3rem];
+  }
+  .form {
+    @apply p-[2rem];
+  }
+  .contactFields {
+    @apply grid-cols-[repeat(2,_minmax(0,_1fr))];
+  }
+}
+@media (min-width: 1024px) {
+  .columns {
+    @apply grid-cols-[minmax(0,_1fr)_20rem];
+    @apply items-start;
+  }
+}
+.successCard > article {
+  @apply mt-[1.5rem];
+  @apply text-left;
+}
+.successActions {
+  @apply flex;
+  @apply flex-wrap;
+  @apply justify-center;
+  @apply gap-[0.75rem];
+  @apply mt-[1.5rem];
+}
+.successActions .newBookingLink {
+  @apply mt-[0];
+}
+.historyLink {
+  @apply inline-block;
+  @apply border border-[#d6d3d1];
+  @apply rounded-[1rem];
+  @apply p-[0.75rem_1.5rem];
+  @apply text-[#292524];
+  @apply text-[0.875rem];
+  @apply font-semibold;
+}
+.historyLink:hover {
+  @apply border-[#ea580c];
+  @apply text-[#c2410c];
+}
+.headerAside {
+  @apply grid;
+  justify-items: start;
+  @apply gap-[0.75rem];
+}
+@media (max-width: 639px) {
+  .page {
+    min-height: calc(100dvh - 8.45rem);
+  }
+  .container {
+    @apply px-4 pt-3 pb-28;
+  }
+  .header {
+    @apply mb-3 pb-3;
+  }
+  .headerContent {
+    @apply mt-1;
+  }
+  .stepLabel {
+    @apply mb-1;
+  }
+  .title {
+    @apply text-2xl;
+  }
+  .headerAside {
+    @apply hidden;
+  }
+  .columns {
+    @apply gap-[1rem];
+  }
+  .form {
+    @apply gap-[1.4rem];
+    @apply p-[1.2rem];
+  }
+  .successPage {
+    @apply min-h-[calc(100dvh_-_9rem)];
+    @apply p-[1.2rem_1rem];
+  }
+  .successCard {
+    @apply p-[1.25rem];
+  }
+  .successActions > a {
+    @apply w-full;
+  }
+}

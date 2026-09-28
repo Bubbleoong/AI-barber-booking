@@ -1,0 +1,54 @@
+@reference "../../tailwind.css";
+
+.header {
+  @apply mb-3 flex items-end justify-between gap-4;
+}
+.title {
+  @apply text-lg font-semibold;
+}
+.list {
+  @apply grid gap-2;
+}
+.serviceInfo {
+  @apply flex min-w-0 flex-1 flex-col gap-0.5;
+}
+.serviceName {
+  @apply truncate font-semibold text-stone-900;
+}
+.serviceDuration {
+  @apply text-xs text-stone-500;
+}
+.servicePrice {
+  @apply shrink-0 text-sm tabular-nums text-stone-900;
+}
+.pagination {
+  @apply mt-3 flex items-center justify-center gap-4;
+}
+.pageButton {
+  @apply min-h-10 rounded-lg border border-stone-300 bg-white px-3 text-sm disabled:opacity-40;
+}
+.pageNumber {
+  @apply text-sm text-stone-600;
+}
+
+.count {
+  @apply rounded-full bg-[#ffedd5] px-3 py-1 text-sm font-bold text-[#9a3412];
+}
+.service {
+  @apply flex min-h-16 w-full items-center gap-3 rounded-xl border-2 border-[#e7e5e4] bg-white px-3 py-2 text-left shadow-sm transition-colors hover:border-[#fb923c] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ea580c];
+}
+.service[aria-pressed="true"] {
+  @apply border-[#ea580c] bg-[#fff7ed] shadow-md;
+}
+.selection {
+  @apply flex size-7 shrink-0 items-center justify-center rounded-full border-2 border-[#a8a29e] text-sm font-extrabold text-transparent;
+}
+.service[aria-pressed="true"] .selection {
+  @apply border-[#c2410c] bg-[#c2410c] text-white;
+}
+.selectionLabel {
+  @apply min-w-14 rounded-md bg-[#f5f5f4] px-2 py-1 text-center text-xs font-bold text-[#57534e];
+}
+.service[aria-pressed="true"] .selectionLabel {
+  @apply bg-[#c2410c] text-white;
+}

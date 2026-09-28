@@ -1,0 +1,93 @@
+@reference "../../../tailwind.css";
+
+.loadingPage {
+  @apply min-h-screen;
+  @apply bg-[#fff7ed];
+  @apply p-[3.5rem_1.25rem];
+  @apply text-[#171717];
+}
+.loadingContent {
+  @apply max-w-[72rem];
+  @apply m-[0_auto];
+  animation: pulse 2s ease-in-out infinite;
+}
+.loadingEyebrow,
+.loadingTitle,
+.loadingCard {
+  @apply rounded-[.75rem];
+  @apply bg-[#e7e5e4];
+}
+.loadingEyebrow {
+  @apply w-[8rem];
+  @apply h-[1rem];
+  @apply mb-[1.25rem];
+}
+.loadingTitle {
+  @apply w-[min(20rem,_100%)];
+  @apply h-[3rem];
+  @apply mb-[3rem];
+}
+.loadingGrid {
+  @apply grid;
+  @apply gap-[1rem];
+}
+.loadingCard {
+  @apply h-[14rem];
+  @apply rounded-[1.5rem];
+}
+.errorPage {
+  @apply flex;
+  @apply min-h-screen;
+  @apply items-center;
+  @apply justify-center;
+  @apply bg-[#fff7ed];
+  @apply p-[0_1.25rem];
+  @apply text-[#171717];
+}
+.errorCard {
+  @apply w-full;
+  @apply max-w-[28rem];
+  @apply border border-[#e7e5e4];
+  @apply rounded-[1.5rem];
+  @apply bg-white;
+  @apply p-[2rem];
+  @apply text-center;
+  box-shadow: 0 1px 2px #0000000d;
+}
+.errorTitle {
+  @apply text-[1.5rem];
+  @apply font-semibold;
+}
+.errorText {
+  @apply mt-[.75rem];
+  @apply text-[#57534e];
+  @apply text-[.875rem];
+  @apply leading-[1.5rem];
+}
+.retryButton {
+  @apply mt-[1.5rem];
+  @apply rounded-[1rem];
+  @apply bg-[#171717];
+  @apply p-[.75rem_1.5rem];
+  @apply text-white;
+  @apply text-[.875rem];
+  @apply font-semibold;
+}
+.retryButton:hover {
+  @apply bg-[#c2410c];
+}
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+@media (min-width: 640px) {
+  .loadingGrid {
+    @apply grid-cols-[repeat(2,_minmax(0,_1fr))];
+  }
+}
+@media (min-width: 1024px) {
+  .loadingGrid {
+    @apply grid-cols-[repeat(3,_minmax(0,_1fr))];
+  }
+}

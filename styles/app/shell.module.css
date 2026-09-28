@@ -1,0 +1,32 @@
+@reference "../tailwind.css";
+
+.shell {
+  @apply min-h-screen bg-[#fff7ed] text-[#1e2524];
+  padding-bottom: calc(4.75rem + env(safe-area-inset-bottom));
+}
+
+.header {
+  @apply flex min-h-[3.7rem] items-center justify-between gap-3 bg-[#171717] px-4 py-3 text-white;
+}
+
+.brand {
+  @apply flex min-w-0 items-center gap-2 whitespace-nowrap font-extrabold tracking-[.12em];
+  font-size: clamp(0.7rem, 2.6vw, 0.86rem);
+}
+
+.logo {
+  @apply shrink-0 rounded-full;
+}
+
+.greeting {
+  @apply max-w-[40%] truncate text-[.82rem];
+}
+
+@media (min-width: 769px) {
+  .shell {
+    padding-bottom: 0;
+  }
+  .header {
+    padding: 1rem max(1.25rem, calc((100vw - 1100px) / 2));
+  }
+}

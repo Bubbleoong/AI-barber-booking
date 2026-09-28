@@ -1,0 +1,136 @@
+@reference "../../tailwind.css";
+
+.mobileSummary {
+  @apply fixed inset-x-0 z-20 flex items-center gap-3 border-t border-stone-200 bg-white px-4 py-2 shadow-lg lg:hidden;
+  bottom: calc(4.75rem + env(safe-area-inset-bottom));
+}
+.mobileDetails {
+  @apply min-w-0 flex-1 text-sm;
+}
+.mobileDuration {
+  @apply text-xs text-stone-500;
+}
+.mobileButton {
+  @apply min-h-11 shrink-0 rounded-xl bg-[#171717] px-4 text-sm font-semibold text-white disabled:bg-stone-300;
+}
+.desktopOnly {
+  @apply hidden lg:block;
+}
+
+.summary {
+  @apply border border-[#e7e5e4];
+  @apply rounded-[1.5rem];
+  @apply bg-white;
+  @apply p-[1.5rem];
+  box-shadow: 0 1px 2px #0000000d;
+}
+.header {
+  @apply flex;
+  @apply items-center;
+  @apply justify-between;
+  @apply gap-[.75rem];
+  @apply border-b border-b-[#e7e5e4];
+  @apply pb-[1rem];
+}
+.title {
+  @apply text-[1.125rem];
+  @apply font-semibold;
+}
+.count {
+  @apply rounded-[999px];
+  @apply bg-[#fef3c7];
+  @apply p-[.25rem_.75rem];
+  @apply text-[#78350f];
+  @apply text-[.75rem];
+  @apply font-semibold;
+}
+.empty {
+  @apply p-[2rem_0];
+  @apply text-[#78716c];
+  @apply text-[.875rem];
+  @apply leading-[1.5rem];
+}
+.items {
+  @apply flex;
+  @apply flex-col;
+  @apply gap-[.75rem];
+  @apply p-[1.25rem_0];
+  @apply text-[.875rem];
+}
+.item {
+  @apply flex;
+  @apply justify-between;
+  @apply gap-[1rem];
+}
+.itemPrice {
+  @apply shrink-0;
+  @apply font-medium;
+  @apply tabular-nums;
+}
+.totals {
+  @apply flex;
+  @apply flex-col;
+  @apply gap-[.75rem];
+  @apply border-t border-t-[#e7e5e4];
+  @apply pt-[1.25rem];
+}
+.durationRow {
+  @apply flex;
+  @apply justify-between;
+  @apply text-[#57534e];
+  @apply text-[.875rem];
+}
+.durationValue {
+  @apply text-[#171717];
+  @apply font-medium;
+}
+.totalRow {
+  @apply flex;
+  @apply items-end;
+  @apply justify-between;
+}
+.totalLabel {
+  @apply text-[#57534e];
+  @apply text-[.875rem];
+  @apply font-medium;
+}
+.totalPrice {
+  @apply text-[1.875rem];
+  @apply font-bold;
+  @apply tabular-nums;
+}
+.selectedSlot {
+  @apply border-t border-t-[#e7e5e4];
+  @apply pt-[1rem];
+  @apply text-[#c2410c];
+  @apply text-[.875rem];
+  @apply font-medium;
+}
+.continueButton {
+  @apply w-full;
+  @apply mt-[1.5rem];
+  @apply rounded-[1rem];
+  @apply bg-[#171717];
+  @apply p-[1rem_1.25rem];
+  @apply text-white;
+  @apply text-[.875rem];
+  @apply font-semibold;
+  transition: background-color 0.2s;
+}
+.continueButton:hover:not(:disabled) {
+  @apply bg-[#c2410c];
+}
+.continueButton:focus-visible {
+  @apply outline-2 outline-[#ea580c];
+  @apply outline-offset-[2px];
+}
+.continueButton:disabled {
+  @apply cursor-not-allowed;
+  @apply bg-[#d6d3d1];
+}
+@media (min-width: 1024px) {
+  .summary {
+    @apply sticky;
+    @apply top-[2rem];
+  }
+}

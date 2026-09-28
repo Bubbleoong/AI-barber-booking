@@ -1,0 +1,62 @@
+@reference "../../tailwind.css";
+
+.nav {
+  @apply fixed;
+  @apply z-[30];
+  inset: auto 0 0;
+  @apply grid;
+  @apply grid-cols-[repeat(2,_minmax(0,_1fr))];
+  @apply gap-[.25rem];
+  @apply items-stretch;
+  @apply p-[.4rem_.6rem_calc(.4rem_+_env(safe-area-inset-bottom))];
+  @apply bg-white;
+  @apply border-t border-t-[#e7e5e4];
+  box-shadow: 0 -5px 24px #1717170d;
+}
+.withAdmin {
+  @apply grid-cols-[repeat(3,_minmax(0,_1fr))];
+}
+.link {
+  @apply flex;
+  @apply items-center;
+  @apply justify-center;
+  @apply text-center;
+  @apply min-h-[3.25rem];
+  @apply p-[.45rem_.25rem];
+  @apply text-[#57534e];
+  @apply rounded-[.65rem];
+  @apply text-[.76rem];
+  @apply leading-[1.2];
+  @apply font-bold;
+}
+.link[aria-current="page"] {
+  @apply text-[#c2410c];
+  @apply bg-[#ffedd5];
+}
+.adminLink {
+  @apply text-[#c2410c];
+}
+.link:focus-visible {
+  @apply outline-2 outline-[#ea580c];
+  @apply outline-offset-[1px];
+}
+@media (min-width: 769px) {
+  .nav {
+    @apply static;
+    @apply flex;
+    @apply gap-[.5rem];
+    @apply justify-start;
+    @apply p-[.55rem_max(1.25rem,_calc((100vw_-_1100px)_/_2))];
+    @apply shadow-none;
+    @apply border-t-0;
+    @apply border-b border-b-[#e7e5e4];
+  }
+  .link {
+    @apply min-h-[2.7rem];
+    @apply p-[.55rem_.85rem];
+    @apply text-[.875rem];
+  }
+  .adminLink {
+    @apply ml-auto;
+  }
+}

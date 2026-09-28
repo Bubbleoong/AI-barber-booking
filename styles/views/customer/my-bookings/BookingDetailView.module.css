@@ -1,0 +1,59 @@
+@reference "../../../tailwind.css";
+
+.page {
+  @apply min-h-screen;
+  @apply bg-[#fff7ed];
+  @apply text-[#171717];
+}
+.container {
+  @apply max-w-[48rem];
+  @apply m-[0_auto];
+  @apply p-[2.5rem_1.25rem_4rem];
+}
+.backLink {
+  @apply text-[#c2410c];
+  @apply text-[0.875rem];
+  @apply font-semibold;
+}
+.backLink:hover {
+  @apply underline;
+}
+.title {
+  @apply m-[1.5rem_0];
+  @apply text-[2.25rem];
+  @apply font-bold;
+}
+.cancelSection {
+  @apply mt-[1.5rem];
+  @apply border border-[#e7e5e4];
+  @apply rounded-[1.5rem];
+  @apply bg-white;
+  @apply p-[1.5rem];
+}
+.cancelTitle {
+  @apply text-[1.125rem];
+  @apply font-semibold;
+}
+.cancelText {
+  @apply m-[0.5rem_0_1rem];
+  @apply text-[#57534e];
+  @apply text-[0.875rem];
+  @apply leading-[1.5];
+}
+@media (min-width: 640px) {
+  .container {
+    @apply p-[3.5rem_2rem_4rem];
+  }
+}
+@media (max-width: 639px) {
+  .container {
+    @apply p-[1.5rem_1rem_2rem];
+  }
+  .title {
+    @apply text-[1.8rem];
+    @apply m-[1rem_0];
+  }
+  .cancelSection {
+    @apply p-[1.15rem];
+  }
+}

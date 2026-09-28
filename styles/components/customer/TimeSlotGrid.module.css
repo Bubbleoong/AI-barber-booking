@@ -1,0 +1,59 @@
+@reference "../../tailwind.css";
+
+.title {
+  @apply text-[#292524];
+  @apply text-[.875rem];
+  @apply font-semibold;
+}
+.status,
+.empty {
+  @apply mt-[.75rem];
+  @apply text-[#78716c];
+  @apply text-[.875rem];
+}
+.error {
+  @apply mt-[.75rem];
+  @apply text-[#b91c1c];
+  @apply text-[.875rem];
+}
+.selectedNotice {
+  @apply mt-2 rounded-lg border border-[#fdba74] bg-[#ffedd5] px-3 py-2 text-sm font-bold text-[#9a3412];
+}
+.grid {
+  @apply grid;
+  @apply grid-cols-[repeat(3,_minmax(0,_1fr))];
+  @apply gap-[.75rem];
+  @apply mt-[.75rem];
+}
+.slot {
+  @apply flex min-h-12 items-center justify-center gap-1;
+  @apply border-2 border-[#e7e5e4];
+  @apply rounded-[.75rem];
+  @apply bg-white;
+  @apply p-[.75rem];
+  @apply text-[#292524];
+  @apply text-[.875rem];
+  @apply font-semibold;
+  @apply tabular-nums;
+  transition:
+    border-color 0.2s,
+    background-color 0.2s;
+}
+.slot:hover:not([aria-pressed="true"]) {
+  @apply border-[#fb923c];
+}
+.slot:focus-visible {
+  @apply outline-2 outline-[#ea580c];
+  @apply outline-offset-[2px];
+}
+.slot[aria-pressed="true"] {
+  @apply border-[#9a3412] bg-[#c2410c] text-white shadow-md;
+}
+.slotCheck {
+  @apply font-extrabold;
+}
+@media (min-width: 640px) {
+  .grid {
+    @apply grid-cols-[repeat(4,_minmax(0,_1fr))];
+  }
+}

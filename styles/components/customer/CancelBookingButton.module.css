@@ -1,0 +1,102 @@
+@reference "../../tailwind.css";
+
+.button {
+  @apply border border-[#dc2626];
+  @apply rounded-[1rem];
+  @apply bg-white;
+  @apply p-[.75rem_1.25rem];
+  @apply text-[#b91c1c];
+  @apply text-[.875rem];
+  @apply font-semibold;
+}
+.button:hover {
+  @apply bg-[#fef2f2];
+}
+.button:focus-visible,
+.backButton:focus-visible,
+.confirmButton:focus-visible {
+  @apply outline-2 outline-[#dc2626];
+  @apply outline-offset-[2px];
+}
+.dialog {
+  @apply fixed;
+  @apply top-[50%];
+  @apply left-[50%];
+  @apply w-[min(100%_-_2rem,_28rem)];
+  @apply max-h-[calc(100vh_-_2rem)];
+  @apply m-[0];
+  transform: translate(-50%, -50%);
+  @apply overflow-y-auto;
+  @apply border border-[#e7e5e4];
+  @apply rounded-[1.5rem];
+  @apply bg-white;
+  @apply p-[1.5rem];
+  @apply text-[#171717];
+  box-shadow: 0 20px 40px #00000033;
+}
+.dialog::backdrop {
+  @apply bg-[#171717a6];
+}
+.title {
+  @apply text-[1.25rem];
+  @apply font-bold;
+}
+.description {
+  @apply mt-[.75rem];
+  @apply text-[#57534e];
+  @apply text-[.875rem];
+  @apply leading-[1.5];
+}
+.bookingInfo {
+  @apply grid;
+  @apply gap-[.4rem];
+  @apply mt-[1.25rem];
+  @apply border border-[#e7e5e4];
+  @apply rounded-[1rem];
+  @apply bg-[#fafaf9];
+  @apply p-[1rem];
+  @apply text-[.875rem];
+}
+.bookingInfo strong {
+  @apply text-[1rem];
+}
+.error {
+  @apply mt-[1rem];
+  @apply text-[#b91c1c];
+  @apply text-[.875rem];
+  @apply leading-[1.5];
+}
+.actions {
+  @apply flex;
+  @apply flex-wrap;
+  @apply justify-end;
+  @apply gap-[.75rem];
+  @apply mt-[1.5rem];
+}
+.backButton,
+.confirmButton {
+  @apply rounded-[.75rem];
+  @apply p-[.75rem_1rem];
+  @apply text-[.875rem];
+  @apply font-semibold;
+}
+.backButton {
+  @apply border border-[#d6d3d1];
+  @apply bg-white;
+  @apply text-[#292524];
+}
+.backButton:hover:not(:disabled) {
+  @apply bg-[#f5f5f4];
+}
+.confirmButton {
+  @apply bg-[#b91c1c];
+  @apply text-white;
+}
+.confirmButton:hover:not(:disabled) {
+  @apply bg-[#991b1b];
+}
+.backButton:disabled,
+.confirmButton:disabled {
+  cursor: wait;
+  @apply opacity-[.6];
+}

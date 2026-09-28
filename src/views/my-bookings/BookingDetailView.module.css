@@ -1,9 +1,0 @@
-.page { min-height: 100vh; background: #f7f5f0; color: #1c1917; }
-.container { max-width: 48rem; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
-.backLink { color: #92400e; font-size: .875rem; font-weight: 600; }
-.backLink:hover { text-decoration: underline; }
-.title { margin: 1.5rem 0; font-size: 2.25rem; font-weight: 700; }
-.cancelSection { margin-top: 1.5rem; border: 1px solid #e7e5e4; border-radius: 1.5rem; background: white; padding: 1.5rem; }
-.cancelTitle { font-size: 1.125rem; font-weight: 600; }
-.cancelText { margin: .5rem 0 1rem; color: #57534e; font-size: .875rem; line-height: 1.5; }
-@media (min-width: 640px) { .container { padding: 3.5rem 2rem 4rem; } }

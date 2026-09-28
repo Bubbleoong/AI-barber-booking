@@ -1,4 +1,4 @@
-import styles from "./bookingState.module.css";
+import styles from "@styles/app/(customer)/booking/bookingState.module.css";
 
 export default function BookingLoading() {
   return (
@@ -7,7 +7,9 @@ export default function BookingLoading() {
         <div className={styles.loadingEyebrow} />
         <div className={styles.loadingTitle} />
         <div className={styles.loadingGrid}>
-          {[0, 1, 2].map((item) => <div key={item} className={styles.loadingCard} />)}
+          {[0, 1, 2].map((item) => (
+            <div key={item} className={styles.loadingCard} />
+          ))}
         </div>
       </div>
     </main>

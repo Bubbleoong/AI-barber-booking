@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand-orange: #ff6b00;
+  --color-brand-ink: #171717;
+  --color-brand-cream: #fff7ed;
+  --color-brand-blue: #087da3;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}

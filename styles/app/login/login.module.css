@@ -1,0 +1,45 @@
+@reference "../../tailwind.css";
+
+.page {
+  @apply flex;
+  @apply min-h-[100dvh];
+  @apply w-[min(100%,_28rem)];
+  @apply flex-col;
+  @apply justify-center;
+  @apply gap-[1.2rem];
+  @apply m-auto;
+  @apply p-[2rem_1.25rem];
+  @apply text-center;
+}
+.logo {
+  @apply mx-auto rounded-full border-[5px] border-white shadow-xl;
+}
+.eyebrow {
+  @apply text-xs font-extrabold tracking-[.25em] text-[#c2410c];
+}
+.title {
+  @apply text-[clamp(1.5rem,_6vw,_1.9rem)];
+  @apply font-extrabold;
+  @apply leading-[1.2];
+}
+.loginButton {
+  @apply flex;
+  @apply min-h-[3.3rem];
+  @apply items-center;
+  @apply justify-center;
+  @apply rounded-[.8rem];
+  @apply bg-[#171717];
+  @apply text-white;
+  @apply font-extrabold;
+  @apply text-center;
+  @apply transition-colors hover:bg-[#c2410c];
+}
+.loginButton:focus-visible {
+  @apply outline-2 outline-[#ff6b00];
+  @apply outline-offset-[3px];
+}
+.hint {
+  @apply text-[#57534e];
+  @apply text-[.85rem];
+  @apply leading-[1.5];
+}

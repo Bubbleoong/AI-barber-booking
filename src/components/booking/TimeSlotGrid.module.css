@@ -1,9 +1,0 @@
-.title { color: #292524; font-size: .875rem; font-weight: 600; }
-.status, .empty { margin-top: .75rem; color: #78716c; font-size: .875rem; }
-.error { margin-top: .75rem; color: #b91c1c; font-size: .875rem; }
-.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem; margin-top: .75rem; }
-.slot { border: 1px solid #e7e5e4; border-radius: .75rem; background: white; padding: .75rem; color: #292524; font-size: .875rem; font-weight: 600; font-variant-numeric: tabular-nums; transition: border-color .2s, background-color .2s; }
-.slot:hover:not([aria-pressed="true"]) { border-color: #f59e0b; }
-.slot:focus-visible { outline: 2px solid #d97706; outline-offset: 2px; }
-.slot[aria-pressed="true"] { border-color: #d97706; background: #d97706; color: white; }
-@media (min-width: 640px) { .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }

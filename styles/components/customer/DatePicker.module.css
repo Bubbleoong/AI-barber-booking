@@ -1,0 +1,11 @@
+@reference "../../tailwind.css";
+
+.label {
+  @apply block text-sm font-semibold text-[#292524];
+}
+.input {
+  @apply mt-2 block w-full rounded-2xl border border-[#d6d3d1] bg-white px-4 py-3 text-base text-[#171717] outline-none focus:border-[#ea580c];
+}
+.hint {
+  @apply mt-2 block text-xs font-normal text-[#78716c];
+}

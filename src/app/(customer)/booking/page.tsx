@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { BookingView } from "@/views/booking/BookingView";
-import { getBookableServices } from "@/features/catalog/catalogService";
+import { BookingView } from "@/views/customer/booking/BookingView";
+import { listActiveBookingServices } from "@/repositories/serviceRepository";
 
 export const dynamic = "force-dynamic";
 
@@ -10,6 +10,6 @@ export const metadata: Metadata = {
 };
 
 export default async function BookingPage() {
-  const services = await getBookableServices();
+  const services = await listActiveBookingServices();
   return <BookingView services={services} />;
 }
