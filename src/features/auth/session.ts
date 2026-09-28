@@ -1,11 +1,12 @@
 import { cookies } from "next/headers";
 import { SignJWT, jwtVerify } from "jose";
 import { findUserById } from "@/repositories/userRepository";
+import { getDb } from "@/lib/db";
 import type { AuthenticatedUser } from "@/types/auth";
 
 export const SESSION_COOKIE = "barber_session";
 export const OAUTH_COOKIE = "barber_line_oauth";
-export const SESSION_SECONDS = 7 * 24 * 60 * 60;
+export const SESSION_SECONDS = 24 * 60 * 60;
 
 function secretKey() {
   const value = process.env.AUTH_SECRET;
@@ -18,7 +19,7 @@ function secretKey() {
 export function cookieOptions(maxAge: number) {
   return {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production" && process.env.APP_URL?.startsWith("https://"),
+    secure: process.env.NODE_ENV === "production",
     sameSite: "lax" as const,
     path: "/",
     maxAge,
@@ -46,14 +47,14 @@ export async function verifyOAuthCookie(token: string) {
   return { state: payload.state, nonce: payload.nonce };
 }
 
-export async function createSessionCookie(userId: string) {
-  return new SignJWT({})
+export async function createSessionCookie(userId: string, sessionVersion: number) {
+  return new SignJWT({ ver: sessionVersion })
     .setProtectedHeader({ alg: "HS256" })
     .setSubject(userId)
     .setIssuer("barber-booking")
     .setAudience("barber-session")
     .setIssuedAt()
-    .setExpirationTime("7d")
+    .setExpirationTime(`${SESSION_SECONDS}s`)
     .sign(secretKey());
 }
 
@@ -66,9 +67,14 @@ export async function getCurrentUser(): Promise<AuthenticatedUser | null> {
       issuer: "barber-booking",
       audience: "barber-session",
     });
-    if (!payload.sub) return null;
+    if (
+      !payload.sub ||
+      !payload.iat ||
+      Math.floor(Date.now() / 1000) - payload.iat >= SESSION_SECONDS
+    )
+      return null;
     const user = await findUserById(payload.sub);
-    if (!user) return null;
+    if (!user || payload.ver !== user.sessionVersion) return null;
     return {
       id: user.id,
       lineUserId: user.lineUserId,
@@ -77,9 +83,19 @@ export async function getCurrentUser(): Promise<AuthenticatedUser | null> {
       role: user.role,
     };
   } catch (error) {
-    console.error("Session validation failed", error instanceof Error ? error.message : "unknown error");
+    console.error(
+      "Session validation failed",
+      error instanceof Error ? error.message : "unknown error",
+    );
     return null;
   }
+}
+
+export async function revokeUserSessions(userId: string) {
+  await getDb().user.update({
+    where: { id: userId },
+    data: { sessionVersion: { increment: 1 } },
+  });
 }
 
 export async function requireUser() {

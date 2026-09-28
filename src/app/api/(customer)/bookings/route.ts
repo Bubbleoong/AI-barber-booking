@@ -1,15 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getCurrentUser } from "@/features/auth/session";
-import { BookingError } from "@/lib/errors";
-import {
-  createBooking,
-  listMyBookings,
-} from "@/features/booking/bookingService";
+import { AppError } from "@/lib/errors";
+import { readJsonBody } from "@/contracts/jsonBody";
+import { rejectCrossOrigin } from "@/features/auth/requestSecurity";
+import { rateLimit } from "@/features/auth/rateLimit";
+import { createBooking } from "@/features/booking/bookingService";
 
 export const runtime = "nodejs";
 
 function failure(error: unknown) {
-  if (error instanceof BookingError)
+  if (error instanceof AppError)
     return NextResponse.json(
       { error: error.code, message: error.message },
       { status: error.status },
@@ -21,23 +21,18 @@ function failure(error: unknown) {
   );
 }
 
-export async function GET() {
-  const user = await getCurrentUser();
-  if (!user)
-    return NextResponse.json({ error: "UNAUTHORIZED" }, { status: 401 });
-  try {
-    return NextResponse.json({ bookings: await listMyBookings(user.id) });
-  } catch (error) {
-    return failure(error);
-  }
-}
-
 export async function POST(request: NextRequest) {
+  const rejected = rejectCrossOrigin(request);
+  if (rejected) return rejected;
   const user = await getCurrentUser();
-  if (!user)
-    return NextResponse.json({ error: "UNAUTHORIZED" }, { status: 401 });
+  if (!user) return NextResponse.json({ error: "UNAUTHORIZED" }, { status: 401 });
   try {
-    const booking = await createBooking(user.id, await request.json());
+    if (!(await rateLimit(`booking:${user.id}`, 10, 3600)))
+      return NextResponse.json(
+        { error: "RATE_LIMITED", message: "ทำรายการบ่อยเกินไป กรุณาลองอีกครั้งภายหลัง" },
+        { status: 429 },
+      );
+    const booking = await createBooking(user.id, await readJsonBody(request));
     return NextResponse.json({ booking }, { status: 201 });
   } catch (error) {
     if (error instanceof SyntaxError)

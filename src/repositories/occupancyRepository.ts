@@ -12,11 +12,7 @@ export function listOverlappingOccupancy(
   });
 }
 
-export function findOverlappingOccupancy(
-  startAt: Date,
-  endAt: Date,
-  db: Prisma.TransactionClient,
-) {
+export function findOverlappingOccupancy(startAt: Date, endAt: Date, db: Prisma.TransactionClient) {
   return db.calendarOccupancy.findFirst({
     where: { startAt: { lt: endAt }, endAt: { gt: startAt } },
     select: { id: true },
@@ -38,9 +34,6 @@ export function reserveBooking(
   });
 }
 
-export function releaseBooking(
-  bookingId: string,
-  db: Prisma.TransactionClient,
-) {
+export function releaseBooking(bookingId: string, db: Prisma.TransactionClient) {
   return db.calendarOccupancy.deleteMany({ where: { bookingId } });
 }

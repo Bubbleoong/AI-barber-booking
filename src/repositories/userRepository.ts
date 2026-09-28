@@ -28,3 +28,27 @@ export async function hasInitialAdmin() {
     })) !== null
   );
 }
+
+export async function listUsers() {
+  const [users, config] = await Promise.all([
+    getDb().user.findMany({
+      orderBy: { createdAt: "desc" },
+      select: {
+        id: true,
+        displayName: true,
+        lineUserId: true,
+        role: true,
+        createdAt: true,
+      },
+    }),
+    getDb().systemConfig.findUnique({
+      where: { id: 1 },
+      select: { initialAdminId: true },
+    }),
+  ]);
+  return users.map((user) => ({
+    ...user,
+    createdAt: user.createdAt.toISOString(),
+    isInitialAdmin: user.id === config?.initialAdminId,
+  }));
+}

@@ -1,5 +1,5 @@
 import { MAX_ADVANCE_DAYS, SLOT_MINUTES } from "@/domain/booking";
-import type { BookingCustomer } from "@/domain/booking";
+import type { BookingCustomer } from "@/types/bookingDomain";
 import { BookingError } from "@/lib/errors";
 
 export function parseServiceIds(value: unknown): number[] {
@@ -20,9 +20,7 @@ export function parseCustomer(value: unknown): BookingCustomer {
     throw new BookingError("INVALID_CUSTOMER", "กรุณากรอกชื่อและเบอร์โทร");
   const input = value as Record<string, unknown>;
   const customerName =
-    typeof input.customerName === "string"
-      ? input.customerName.trim().normalize("NFC")
-      : "";
+    typeof input.customerName === "string" ? input.customerName.trim().normalize("NFC") : "";
   const phone = typeof input.phone === "string" ? input.phone.trim() : "";
   if (
     customerName.length < 2 ||
@@ -47,9 +45,7 @@ export function parseCustomer(value: unknown): BookingCustomer {
 export function parseStartAt(value: unknown, now = new Date()) {
   if (
     typeof value !== "string" ||
-    !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,3})?(?:Z|[+-]\d{2}:\d{2})$/.test(
-      value,
-    )
+    !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,3})?(?:Z|[+-]\d{2}:\d{2})$/.test(value)
   ) {
     throw new BookingError("INVALID_START", "กรุณาระบุเวลาเริ่มพร้อมเขตเวลา");
   }

@@ -1,6 +1,7 @@
 import { timingSafeEqual } from "node:crypto";
 import { NextRequest, NextResponse } from "next/server";
 import { authenticateLineCode } from "@/features/auth/line";
+import { roleDestination } from "@/features/auth/roleDestination";
 import {
   cookieOptions,
   createSessionCookie,
@@ -37,7 +38,8 @@ export async function GET(request: NextRequest) {
       const response = NextResponse.json(
         {
           lineUserId: result.lineUserId,
-          nextStep: "Copy lineUserId to LINE_ADMIN_USER_ID in .env, run npm run db:seed-admin, then log in again.",
+          nextStep:
+            "Copy lineUserId to LINE_ADMIN_USER_ID in .env, run npm run db:seed-admin, then log in again.",
         },
         {
           headers: {
@@ -50,14 +52,10 @@ export async function GET(request: NextRequest) {
       response.cookies.delete(SESSION_COOKIE);
       return response;
     }
-    const session = await createSessionCookie(result.user.id);
-    const response = NextResponse.redirect(new URL("/booking", appUrl));
+    const session = await createSessionCookie(result.user.id, result.user.sessionVersion);
+    const response = NextResponse.redirect(new URL(roleDestination(result.user.role), appUrl));
     response.cookies.delete(OAUTH_COOKIE);
-    response.cookies.set(
-      SESSION_COOKIE,
-      session,
-      cookieOptions(SESSION_SECONDS),
-    );
+    response.cookies.set(SESSION_COOKIE, session, cookieOptions(SESSION_SECONDS));
     return response;
   } catch (error) {
     console.error("LINE Login callback failed", error);

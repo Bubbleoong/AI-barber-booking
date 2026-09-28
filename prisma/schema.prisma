@@ -40,6 +40,7 @@ model User {
   displayName        String?
   pictureUrl         String?
   role               UserRole      @default(CUSTOMER)
+  sessionVersion     Int           @default(0)
   createdAt          DateTime      @default(now()) @db.Timestamptz(3)
   updatedAt          DateTime      @updatedAt @db.Timestamptz(3)
   bookings           Booking[]
@@ -60,6 +61,7 @@ model Service {
   priceBaht       Int
   durationMinutes Int
   isActive        Boolean       @default(true)
+  deletedAt       DateTime?     @db.Timestamptz(3)
   createdAt       DateTime      @default(now()) @db.Timestamptz(3)
   updatedAt       DateTime      @updatedAt @db.Timestamptz(3)
   bookingItems    BookingItem[]
@@ -142,4 +144,12 @@ model ShopProfile {
   id        String @id
   shopName  String
   shopPhone String
+}
+
+model RequestLimit {
+  key       String   @id
+  count     Int      @default(0)
+  expiresAt DateTime @db.Timestamptz(3)
+
+  @@index([expiresAt])
 }

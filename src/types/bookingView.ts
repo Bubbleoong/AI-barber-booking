@@ -1,4 +1,4 @@
-import type { BookingServiceOption } from "@/domain/service";
+import type { BookingServiceOption } from "@/types/service";
 
 export type BookingViewProps = { services: BookingServiceOption[] };
 export type ServicePickerProps = {

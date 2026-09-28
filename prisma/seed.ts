@@ -12,7 +12,9 @@ async function main() {
       if (existing) {
         const user = await tx.user.findUnique({ where: { id: existing.initialAdminId } });
         if (user?.lineUserId !== lineUserId) {
-          throw new Error("Initial admin has already been configured with a different LINE user ID");
+          throw new Error(
+            "Initial admin has already been configured with a different LINE user ID",
+          );
         }
         return;
       }

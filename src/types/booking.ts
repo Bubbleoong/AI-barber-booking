@@ -24,7 +24,12 @@ export type BookingCardProps = {
   booking: BookingDetails;
   variant?: "compact" | "full";
 };
-export type MyBookingsViewProps = { bookings: BookingDetails[] };
+export type MyBookingsViewProps = {
+  bookings: BookingDetails[];
+  total: number;
+  page: number;
+  pageSize: number;
+};
 export type BookingDetailViewProps = { booking: BookingDetails; canCancel: boolean };
 export type CancelBookingButtonProps = {
   bookingId: string;

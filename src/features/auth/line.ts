@@ -85,14 +85,9 @@ export async function authenticateLineCode(code: string, nonce: string) {
   }
   const verified: VerifiedLineProfile = {
     sub: profile.sub,
-    name:
-      "name" in profile && typeof profile.name === "string"
-        ? profile.name
-        : undefined,
+    name: "name" in profile && typeof profile.name === "string" ? profile.name : undefined,
     picture:
-      "picture" in profile && typeof profile.picture === "string"
-        ? profile.picture
-        : undefined,
+      "picture" in profile && typeof profile.picture === "string" ? profile.picture : undefined,
   };
   if (!(await hasInitialAdmin())) {
     return { kind: "bootstrap" as const, lineUserId: verified.sub };
