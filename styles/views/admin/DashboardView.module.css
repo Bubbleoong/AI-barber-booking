@@ -1,0 +1,57 @@
+@reference "../../tailwind.css";
+
+.page {
+  @apply max-w-[1100px];
+  @apply m-auto;
+  @apply p-[2rem_1.25rem];
+}
+.eyebrow {
+  @apply text-[#c2410c];
+  @apply text-[.8rem];
+  @apply font-extrabold;
+  @apply tracking-[.15em];
+}
+.page h1 {
+  @apply text-[clamp(1.7rem,_4vw,_2.4rem)];
+  @apply font-extrabold;
+  @apply m-[.5rem_0_1.7rem];
+}
+.grid {
+  @apply grid;
+  @apply grid-cols-[repeat(2,_minmax(0,_1fr))];
+  @apply gap-[.75rem];
+}
+.card,
+.next {
+  @apply bg-white;
+  @apply border border-[#e7e5e4];
+  @apply rounded-[1rem];
+  @apply p-[1.3rem];
+  box-shadow: 0 4px 18px #203a3010;
+}
+.card {
+  @apply flex;
+  @apply flex-col;
+  @apply gap-[.7rem];
+}
+.card strong {
+  @apply text-[2rem];
+  @apply text-[#171717];
+}
+.next {
+  @apply mt-[1.3rem];
+}
+.next h2 {
+  @apply font-bold;
+  @apply mb-[.7rem];
+}
+.next a {
+  @apply text-[#171717];
+  @apply underline;
+}
+@media (min-width: 769px) {
+  .grid {
+    @apply grid-cols-[repeat(3,_minmax(0,_1fr))];
+    @apply gap-[1rem];
+  }
+}

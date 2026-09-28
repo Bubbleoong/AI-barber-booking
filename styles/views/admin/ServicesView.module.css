@@ -1,0 +1,44 @@
+@reference "../../tailwind.css";
+
+.page {
+  @apply mx-auto max-w-[1100px] px-4 py-6 md:px-5 md:py-8;
+}
+.title {
+  @apply text-3xl font-extrabold;
+}
+.intro {
+  @apply my-3 text-[#57534e];
+}
+.addService {
+  @apply my-4;
+}
+.addService > summary {
+  @apply cursor-pointer rounded-lg bg-[#171717] p-3 font-bold text-white;
+}
+.addForm {
+  @apply mt-2;
+}
+.list {
+  @apply grid gap-2;
+}
+.card {
+  @apply overflow-hidden rounded-xl border border-[#e7e5e4] bg-white;
+}
+.cardButton {
+  @apply flex min-h-16 w-full items-center justify-between gap-3 p-3 text-left;
+}
+.cardInfo {
+  @apply grid gap-0.5;
+}
+.cardDetails {
+  @apply text-[#57534e];
+}
+.cardStatus {
+  @apply shrink-0 text-xs text-[#171717];
+}
+.pagination {
+  @apply my-5 flex items-center justify-center gap-4;
+}
+.pageButton {
+  @apply min-h-11 rounded-lg border border-[#d6d3d1] bg-white px-3 disabled:opacity-45;
+}

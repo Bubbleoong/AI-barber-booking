@@ -1,0 +1,28 @@
+@reference "../../tailwind.css";
+
+.row {
+  @apply flex gap-2 items-center flex-wrap;
+}
+.row select {
+  @apply rounded-lg border border-[#d6d3d1] bg-white p-[.55rem];
+}
+.row button {
+  @apply rounded-lg bg-[#171717] px-[.8rem] py-[.55rem] text-white disabled:opacity-45;
+}
+.error {
+  @apply text-[.85rem] text-[#a12c25];
+}
+@media (max-width: 768px) {
+  .row {
+    @apply grid;
+    @apply grid-cols-[1fr_auto];
+    @apply w-full;
+  }
+  .row select,
+  .row button {
+    @apply min-h-[2.8rem];
+  }
+  .error {
+    @apply col-[1_/_-1];
+  }
+}

@@ -1,0 +1,43 @@
+@reference "../../tailwind.css";
+
+.trigger {
+  @apply p-[.75rem_1rem];
+  @apply rounded-[.6rem];
+  @apply bg-[#9f3a30];
+  @apply text-white;
+  @apply font-bold;
+}
+.dialog {
+  @apply border-0;
+  @apply rounded-[1rem];
+  @apply p-[1.5rem];
+  @apply w-[min(420px,_calc(100vw_-_2rem))];
+  box-shadow: 0 18px 70px #0005;
+}
+.dialog::backdrop {
+  @apply bg-[#101c18aa];
+}
+.dialog h2 {
+  @apply text-[1.25rem];
+  @apply font-extrabold;
+}
+.dialog p {
+  @apply m-[.7rem_0_1.2rem];
+}
+.actions {
+  @apply flex;
+  @apply justify-end;
+  @apply gap-[.7rem];
+}
+.actions button {
+  @apply p-[.7rem_.9rem];
+  @apply rounded-[.5rem];
+  @apply bg-[#e8e9e3];
+}
+.actions button:last-child {
+  @apply bg-[#9f3a30];
+  @apply text-white;
+}
+.error {
+  @apply text-[#a12c25];
+}

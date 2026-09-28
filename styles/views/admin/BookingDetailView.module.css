@@ -1,0 +1,31 @@
+@reference "../../tailwind.css";
+
+.page {
+  @apply max-w-[760px];
+  @apply m-auto;
+  @apply p-[2rem_1.25rem];
+}
+.page h1 {
+  @apply text-[2rem];
+  @apply font-extrabold;
+  @apply m-[1.2rem_0];
+}
+.back {
+  @apply text-[#c2410c];
+  @apply underline;
+}
+.actions {
+  @apply mt-[1.3rem];
+}
+@media (max-width: 768px) {
+  .page {
+    @apply p-[1.4rem_1rem_2rem];
+  }
+  .page h1 {
+    @apply text-[1.8rem];
+  }
+  .actions button {
+    @apply w-full;
+    @apply min-h-[2.9rem];
+  }
+}

@@ -1,0 +1,65 @@
+@reference "../../tailwind.css";
+
+.row {
+  @apply grid;
+  @apply gap-[.75rem];
+  @apply p-[1rem_0];
+  @apply border-b border-b-[#eeeae2];
+}
+.heading {
+  @apply flex;
+  @apply justify-between;
+  @apply items-center;
+  @apply gap-[.5rem];
+}
+.heading strong {
+  @apply font-extrabold;
+}
+.heading label {
+  @apply flex;
+  @apply gap-[.4rem];
+  @apply items-center;
+}
+.times {
+  @apply grid;
+  @apply grid-cols-[repeat(2,_minmax(0,_1fr))];
+  @apply gap-[.6rem];
+}
+.times label {
+  @apply grid;
+  @apply gap-[.2rem];
+  @apply text-[#57534e];
+  @apply text-[.76rem];
+}
+.times input {
+  @apply w-full;
+  @apply min-h-[2.8rem];
+  @apply p-[.45rem];
+  @apply border border-[#d6d3d1];
+  @apply rounded-[.45rem];
+  @apply text-[#1e2524];
+}
+.row button {
+  @apply min-h-[2.8rem];
+  @apply p-[.55rem_.8rem];
+  @apply bg-[#171717];
+  @apply text-white;
+  @apply rounded-[.5rem];
+}
+.row p {
+  @apply text-[#a12c25];
+}
+@media (min-width: 769px) {
+  .row {
+    @apply grid-cols-[12rem_minmax(0,_1fr)_auto];
+    @apply items-end;
+  }
+  .heading {
+    @apply justify-start;
+    @apply gap-[1rem];
+    @apply pb-[.65rem];
+  }
+  .row p {
+    @apply col-[1_/_-1];
+  }
+}

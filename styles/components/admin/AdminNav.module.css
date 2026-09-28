@@ -1,0 +1,97 @@
+@reference "../../tailwind.css";
+
+.nav {
+  @apply fixed;
+  @apply z-[30];
+  inset: auto 0 0;
+  @apply grid;
+  @apply grid-cols-[repeat(5,_minmax(0,_1fr))];
+  @apply gap-[.1rem];
+  @apply items-stretch;
+  @apply p-[.35rem_.35rem_calc(.35rem_+_env(safe-area-inset-bottom))];
+  @apply bg-white;
+  @apply border-t border-t-[#e7e5e4];
+  box-shadow: 0 -5px 24px #17171712;
+}
+.link {
+  @apply flex;
+  @apply min-h-[3.4rem];
+  @apply items-center;
+  @apply justify-center;
+  @apply p-[.4rem_.15rem];
+  @apply rounded-[.55rem];
+  @apply text-[#57534e];
+  @apply text-center;
+  @apply text-[.73rem];
+  @apply leading-[1.2];
+  @apply font-bold;
+}
+.link[aria-current="page"] {
+  @apply bg-[#ffedd5];
+  @apply text-[#c2410c];
+}
+.link:focus-visible,
+.menu a:focus-visible {
+  @apply outline-2 outline-[#ea580c];
+  @apply outline-offset-[1px];
+}
+.desktopOnly {
+  @apply hidden;
+}
+.more {
+  @apply relative;
+}
+.more summary {
+  @apply cursor-pointer;
+  @apply list-none;
+}
+.more summary::-webkit-details-marker {
+  @apply hidden;
+}
+.menu {
+  @apply absolute;
+  @apply right-[0];
+  @apply bottom-[calc(100%_+_.7rem)];
+  @apply grid;
+  @apply min-w-[11rem];
+  @apply p-[.4rem];
+  @apply border border-[#e7e5e4];
+  @apply rounded-[.75rem];
+  @apply bg-white;
+  box-shadow: 0 12px 35px #17171730;
+}
+.menu a {
+  @apply p-[.8rem];
+  @apply rounded-[.5rem];
+  @apply text-[#171717];
+  @apply text-[.85rem];
+}
+.menu a[aria-current="page"],
+.menu a:hover {
+  @apply bg-[#ffedd5];
+}
+@media (min-width: 769px) {
+  .nav {
+    @apply static;
+    @apply flex;
+    @apply gap-[.35rem];
+    @apply p-[.55rem_max(1.25rem,_calc((100vw_-_1100px)_/_2))];
+    @apply border-t-0;
+    @apply border-b border-b-[#e7e5e4];
+    @apply shadow-none;
+  }
+  .link {
+    @apply min-h-[2.7rem];
+    @apply p-[.55rem_.8rem];
+    @apply text-[.87rem];
+  }
+  .desktopOnly {
+    @apply flex;
+  }
+  .more {
+    @apply hidden;
+  }
+  .customerLink {
+    @apply ml-auto;
+  }
+}

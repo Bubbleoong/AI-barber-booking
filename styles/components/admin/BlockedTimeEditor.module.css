@@ -1,0 +1,68 @@
+@reference "../../tailwind.css";
+
+.wrap {
+  @apply grid;
+  @apply gap-[.8rem];
+}
+.form {
+  @apply flex;
+  @apply flex-wrap;
+  @apply items-end;
+  @apply gap-[.7rem];
+}
+.form label {
+  @apply grid;
+  @apply gap-[.25rem];
+  @apply text-[.85rem];
+  @apply font-bold;
+}
+.form input {
+  @apply border border-[#d6d3d1];
+  @apply rounded-[.45rem];
+  @apply p-[.6rem];
+}
+.form button {
+  @apply bg-[#171717];
+  @apply text-white;
+  @apply rounded-[.5rem];
+  @apply p-[.65rem_.9rem];
+}
+.wrap ul {
+  @apply grid;
+  @apply gap-[.4rem];
+}
+.wrap li {
+  @apply flex;
+  @apply justify-between;
+  @apply gap-[.7rem];
+  @apply border-b border-b-[#eeeae2];
+  @apply p-[.5rem_0];
+}
+.wrap li button {
+  @apply text-[#a12c25];
+  @apply font-bold;
+}
+.error {
+  @apply text-[#a12c25];
+}
+@media (max-width: 768px) {
+  .form {
+    @apply grid;
+  }
+  .form label,
+  .form input,
+  .form button {
+    @apply w-full;
+  }
+  .form input,
+  .form button {
+    @apply min-h-[2.8rem];
+  }
+  .wrap li {
+    @apply items-center;
+  }
+  .wrap li button {
+    @apply min-w-[2.75rem];
+    @apply min-h-[2.75rem];
+  }
+}

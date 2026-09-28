@@ -1,0 +1,38 @@
+@reference "../../tailwind.css";
+
+.page {
+  @apply max-w-[1100px];
+  @apply m-auto;
+  @apply p-[2rem_1.25rem];
+}
+.page h1 {
+  @apply text-[2rem];
+  @apply font-extrabold;
+}
+.page p {
+  @apply m-[.5rem_0_1.4rem];
+  @apply text-[#57534e];
+}
+.section {
+  @apply bg-white;
+  @apply border border-[#e7e5e4];
+  @apply rounded-[1rem];
+  @apply p-[1.2rem];
+  @apply mb-[1rem];
+}
+.section h2 {
+  @apply text-[1.15rem];
+  @apply font-extrabold;
+  @apply mb-[.8rem];
+}
+@media (max-width: 768px) {
+  .page {
+    @apply p-[1.4rem_1rem_2rem];
+  }
+  .page h1 {
+    @apply text-[1.8rem];
+  }
+  .section {
+    @apply p-[1rem];
+  }
+}

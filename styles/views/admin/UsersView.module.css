@@ -1,0 +1,54 @@
+@reference "../../tailwind.css";
+
+.page {
+  @apply max-w-[1100px];
+  @apply m-auto;
+  @apply p-[2rem_1.25rem];
+}
+.page h1 {
+  @apply text-[2rem];
+  @apply font-extrabold;
+}
+.page p {
+  @apply m-[.5rem_0_1.4rem];
+  @apply text-[#57534e];
+}
+.list {
+  @apply grid;
+  @apply gap-[.7rem];
+}
+.card {
+  @apply flex;
+  @apply flex-wrap;
+  @apply justify-between;
+  @apply gap-[1rem];
+  @apply items-center;
+  @apply bg-white;
+  @apply border border-[#e7e5e4];
+  @apply rounded-[.8rem];
+  @apply p-[1rem];
+}
+.card div:first-child {
+  @apply grid;
+  @apply gap-[.2rem];
+}
+.card small {
+  @apply text-[#57534e];
+  @apply wrap-anywhere;
+}
+.card span {
+  @apply text-[#8a5d18];
+  @apply font-bold;
+  @apply text-[.8rem];
+}
+@media (max-width: 768px) {
+  .page {
+    @apply p-[1.4rem_1rem_2rem];
+  }
+  .card {
+    @apply grid;
+  }
+  .card > div {
+    @apply min-w-[0];
+  }
+}
