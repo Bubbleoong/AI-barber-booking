@@ -1,5 +1,4 @@
 import { redirect } from "next/navigation";
-import Image from "next/image";
 import { getCurrentUser } from "@/features/auth/session";
 import { roleDestination } from "@/features/auth/roleDestination";
 import styles from "@styles/app/login/login.module.css";
@@ -14,14 +13,6 @@ export default async function LoginPage() {
     : "/api/auth/line";
   return (
     <main className={styles.page}>
-      <Image
-        className={styles.logo}
-        src="/barber-brand.png"
-        alt="โลโก้ร้านตัดผม"
-        width={128}
-        height={128}
-        priority
-      />
       <span className={styles.eyebrow}>BARBER BOOKING</span>
       <h1 className={styles.title}>เข้าสู่ระบบร้านตัดผม</h1>
       <p>ใช้บัญชี LINE เพื่อเข้าสู่ระบบและจองคิว</p>

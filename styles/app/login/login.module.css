@@ -11,9 +11,6 @@
   @apply p-[2rem_1.25rem];
   @apply text-center;
 }
-.logo {
-  @apply mx-auto rounded-full border-[5px] border-white shadow-xl;
-}
 .eyebrow {
   @apply text-xs font-extrabold tracking-[.25em] text-[#c2410c];
 }

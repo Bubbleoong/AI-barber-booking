@@ -1,5 +1,4 @@
 import { redirect } from "next/navigation";
-import Image from "next/image";
 import { cookies } from "next/headers";
 import { SESSION_COOKIE } from "@/features/auth/session";
 import { getCurrentUser } from "@/features/auth/session";
@@ -19,7 +18,6 @@ export default async function CustomerLayout({ children }: RouteLayoutProps) {
     <div className={styles.shell}>
       <header className={styles.header}>
         <span className={styles.brand}>
-          <Image className={styles.logo} src="/barber-brand.png" alt="" width={38} height={38} />
           BARBER BOOKING
         </span>
         <span className={styles.greeting}>{user.displayName ?? "ลูกค้า"}</span>

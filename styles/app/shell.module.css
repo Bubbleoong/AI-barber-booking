@@ -14,9 +14,6 @@
   font-size: clamp(0.7rem, 2.6vw, 0.86rem);
 }
 
-.logo {
-  @apply shrink-0 rounded-full;
-}
 
 .greeting {
   @apply max-w-[40%] truncate text-[.82rem];
