@@ -30,11 +30,11 @@ jobs:
       - name: Run linter
         run: npm run lint
 
-      - name: Check TypeScript types
-        run: npm run typecheck
-
       - name: Generate Prisma Client
         run: npm run db:generate
+
+      - name: Check TypeScript types
+        run: npm run typecheck
 
       - name: Run unit tests
         run: npm run test:unit
