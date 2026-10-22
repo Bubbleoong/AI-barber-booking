@@ -31,6 +31,7 @@
   @apply gap-[1rem];
   @apply mt-[1rem];
 }
+
 .stepLabel {
   @apply mb-[0.5rem];
   @apply text-[#78716c];
@@ -210,7 +211,7 @@
     @apply p-[2rem];
   }
   .contactFields {
-    @apply grid-cols-[repeat(2,_minmax(0,_1fr))];
+    @apply grid-cols-2;
   }
 }
 @media (min-width: 1024px) {

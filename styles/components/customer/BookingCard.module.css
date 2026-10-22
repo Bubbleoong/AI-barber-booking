@@ -128,6 +128,6 @@
 }
 @media (min-width: 640px) {
   .contact {
-    @apply grid-cols-[repeat(2,_minmax(0,_1fr))];
+    @apply grid-cols-2;
   }
 }

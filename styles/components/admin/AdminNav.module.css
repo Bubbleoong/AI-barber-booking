@@ -5,7 +5,7 @@
   @apply z-[30];
   inset: auto 0 0;
   @apply grid;
-  @apply grid-cols-[repeat(5,_minmax(0,_1fr))];
+  @apply grid-cols-5;
   @apply gap-[.1rem];
   @apply items-stretch;
   @apply p-[.35rem_.35rem_calc(.35rem_+_env(safe-area-inset-bottom))];

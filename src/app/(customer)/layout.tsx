@@ -17,9 +17,7 @@ export default async function CustomerLayout({ children }: RouteLayoutProps) {
   return (
     <div className={styles.shell}>
       <header className={styles.header}>
-        <span className={styles.brand}>
-          BARBER BOOKING
-        </span>
+        <span className={styles.brand}>BARBER BOOKING</span>
         <span className={styles.greeting}>{user.displayName ?? "ลูกค้า"}</span>
       </header>
       <CustomerNav isAdmin={user.role === "ADMIN"} />

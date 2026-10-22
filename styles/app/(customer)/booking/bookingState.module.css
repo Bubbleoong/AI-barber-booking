@@ -83,11 +83,11 @@
 }
 @media (min-width: 640px) {
   .loadingGrid {
-    @apply grid-cols-[repeat(2,_minmax(0,_1fr))];
+    @apply grid-cols-2;
   }
 }
 @media (min-width: 1024px) {
   .loadingGrid {
-    @apply grid-cols-[repeat(3,_minmax(0,_1fr))];
+    @apply grid-cols-3;
   }
 }
